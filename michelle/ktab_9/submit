@@ -1,9 +1,0 @@
-#!/bin/bash
-#
-#PBS -N ktable
-#PBS -l walltime=150:00:00
-#PBS -l vmem=36gb
-#PBS -l nodes=1:ppn=1
-export PATH=~/bin/ifort:$PATH
-cd $PBS_O_WORKDIR
-Calc_fnktablec_dp < kta_inp > logfile
