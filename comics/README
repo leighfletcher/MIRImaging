@@ -1,0 +1,6 @@
+COMICS Ktables produced by M.T. Roman (June 2021).
+NG=600
+MPOINT extremely large to account for narrow lines.
+Double precision ktables.
+Uses newly downloaded filter files, convolve with Mauna Kea atmosphere.
+Now includes the 7.8 micron filter.

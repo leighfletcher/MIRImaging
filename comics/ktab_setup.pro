@@ -1,4 +1,4 @@
-
+PRO ktab_setup
 
 gases=['c2h6','c2h2','c2h4','ph3','nh3_all','h2','ch4','ch3d','ch4_13C']
 
@@ -29,7 +29,7 @@ Tmin = 40		    ; Temperature minimum
 Tmax = 300		    ; Temperature maximum
 broad = 0		    ; Foreign(0) or Self(1) broadened
 line_wing = 35  	    ; Line wing cut-off
-filfile="../comics.fil"
+filfile="../filters_COMICS_MKatm.fil"
 
 
 
@@ -67,8 +67,8 @@ for ig=0,ngas-1 do begin
 	if gases[ig] eq 'c6h6' then gas='49 0 0'
 
 
-
-	key = "/home/l/lnf2/specdata/ldb/db2018/db120.key"
+        key =  "/data/nemesis/specdata/ldb/db2018/db120.key"
+;	key = "/home/l/lnf2/specdata/ldb/db2018/db120.key"
 
 	if (gases[ig] eq 'nh3_all' or gases[ig] eq 'nh3_14N' or gases[ig] eq 'nh3_15N') then key="/data/nemesis/specdata/ldb/db2018/db112.key"
 
@@ -154,10 +154,10 @@ openw,1,'submitjob'
 printf,1,'#!/bin/bash'
 printf,1,'#'
 printf,1,'#PBS -N ktable'
-printf,1,'#PBS -l walltime=150:00:00'
+printf,1,'#PBS -l walltime=99:00:00'
 printf,1,'#PBS -l vmem=36gb'
-;printf,1,'#PBS -m bea'
-;printf,1,'#PBS -M lnf2@le.ac.uk'
+printf,1,'#PBS -m bea'
+printf,1,'#PBS -M mr359@le.ac.uk'
 printf,1,'#PBS -l nodes=1:ppn=1'
 txt=strcompress('1-'+string(ngas),/remove_all)
 printf,1,'#PBS -t ',txt

@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+#PBS -N ktable
+#PBS -l walltime=99:00:00
+#PBS -l vmem=36gb
+#PBS -m bea
+#PBS -M mr359@le.ac.uk
+#PBS -l nodes=1:ppn=1
+#PBS -t 1-9
+export PATH=~/bin/ifort:$PATH
+cd $PBS_O_WORKDIR
+inputdir=ktab_${PBS_ARRAYID}
+cd $inputdir
+Calc_fnktablec_dp < kta_inp > logfile
